@@ -14,6 +14,11 @@ const Main = () => {
     input,
   } = useContext(Context);
 
+  const cardClick = async (prompt) => {
+    setInput("");
+    await onSent(prompt);
+  };
+
   return (
     <div className="main">
       <div className="nav">
@@ -30,20 +35,32 @@ const Main = () => {
               </p>
             </div>
             <div className="cards">
-              <div className="card">
+              <div
+                className="card"
+                onClick={() => cardClick("Suggest places for a road trip")}
+              >
                 <p>Suggest places for a road trip</p>
                 <img src={assets.compass_icon} alt="Compass" />
               </div>
-              <div className="card">
+              <div
+                className="card"
+                onClick={() => cardClick("Briefly summarize 'urban planning'")}
+              >
                 <p>Briefly summarize 'urban planning'</p>
                 <img src={assets.bulb_icon} alt="Lightbulb" />
               </div>
-              <div className="card">
+              <div
+                className="card"
+                onClick={() => cardClick("Brainstorm team bonding ideas")}
+              >
                 <p>Brainstorm team bonding ideas</p>
                 <img src={assets.message_icon} alt="Message" />
               </div>
-              <div className="card">
-                <p>Improve the readability of the following code</p>
+              <div
+                className="card"
+                onClick={() => cardClick("What is ReactJS")}
+              >
+                <p>What is ReactJS</p>
                 <img src={assets.code_icon} alt="Code" />
               </div>
             </div>
@@ -77,8 +94,6 @@ const Main = () => {
               placeholder="Enter a message here..."
             />
             <div>
-              <img src={assets.gallery_icon} alt="" />
-              <img src={assets.mic_icon} alt="" />
               {input ? (
                 <img onClick={() => onSent()} src={assets.send_icon} alt="" />
               ) : null}

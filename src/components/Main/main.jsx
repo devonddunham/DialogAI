@@ -31,7 +31,7 @@ const Main = () => {
             </div>
             <div className="cards">
               <div className="card">
-                <p>Suggest places for a roady trip</p>
+                <p>Suggest places for a road trip</p>
                 <img src={assets.compass_icon} alt="Compass" />
               </div>
               <div className="card">
@@ -79,7 +79,9 @@ const Main = () => {
             <div>
               <img src={assets.gallery_icon} alt="" />
               <img src={assets.mic_icon} alt="" />
-              <img onClick={() => onSent()} src={assets.send_icon} alt="" />
+              {input ? (
+                <img onClick={() => onSent()} src={assets.send_icon} alt="" />
+              ) : null}
             </div>
           </div>
           <p className="bottom-info">
